@@ -10,3 +10,17 @@
   Resultado multiplicação: <input type="text" id="resultMultiply" [value]="multResult" readonly><br />
   Resultado potência: <input type="text" id="resultPower" [value]="powResult" readonly><br />
 </div>
+
+<br>
+
+<form>
+  Número 3: <input id="num3" #num3 type="text" /><br />
+  Número 4: <input id="num4" #num4 type="text" /><br />
+  <input id="calc2" type="button" value="Calcular"
+    (click)="calculate2(num3.value,num4.value)">
+</form>
+
+<div class="results">
+  Resultado subtração: <input type="text" id="resultSub" [value]="subResult" readonly><br />
+  Resultado Divisão: <input type="text" id="resultDiv" [value]="divResult" readonly><br />
+</div>

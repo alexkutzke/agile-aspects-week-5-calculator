@@ -47,6 +47,16 @@ describe('CalculatorComponent', () => {
     expect(resultMultiplyInput.value).toBe('6');
     expect(resultPowerInput.value).toBe('8');
   });
+
+  it('should present results 10, 3 calculate(15,5)', () => {
+    component.calculate2('15','5');
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const resultSumInput:HTMLInputElement = compiled.querySelector('#resultSub')!;
+    const resultMultiplyInput:HTMLInputElement = compiled.querySelector('#resultDiv')!;
+    expect(resultSumInput.value).toBe('10');
+    expect(resultMultiplyInput.value).toBe('3');
+  });
   
   it('should present results 5, 6 and 8 after user enter values 2 and 3 then click the button', () => {
     const compiled = fixture.nativeElement as HTMLElement;
@@ -65,6 +75,23 @@ describe('CalculatorComponent', () => {
     expect(resultSumInput.value).toBe('5');
     expect(resultMultiplyInput.value).toBe('6');
     expect(resultPowerInput.value).toBe('8');
+  });
+
+  it('should present results 10 and 2 after user enter values 20 and 10 then click the button', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const num3Input: HTMLInputElement = compiled.querySelector('#num3')!;
+    const num4Input: HTMLInputElement = compiled.querySelector('#num4')!;
+    const calcButton: HTMLInputElement = compiled.querySelector('#calc2')!;
+    num3Input.value = '20';
+    num4Input.value = '10';
+    num3Input.dispatchEvent(new Event('input'));
+    num4Input.dispatchEvent(new Event('input'));
+    calcButton.dispatchEvent(new Event('click'));
+    fixture.detectChanges();
+    const resultSumInput:HTMLInputElement = compiled.querySelector('#resultSub')!;
+    const resultMultiplyInput:HTMLInputElement = compiled.querySelector('#resultDiv')!;
+    expect(resultSumInput.value).toBe('10');
+    expect(resultMultiplyInput.value).toBe('2');
   });
 
 });
