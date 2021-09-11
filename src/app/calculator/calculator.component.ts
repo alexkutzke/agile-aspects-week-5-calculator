@@ -59,7 +59,11 @@ export class CalculatorComponent implements OnInit {
   }
 
   divide(num1: number, num2: number) {
-    this.divRes = this.divBySubService.divide(num1,num2);
+    if (num2 === 0) {
+      this.divRes = Infinity;
+    } else {
+      this.divRes = this.divBySubService.divide(num1,num2);
+    }
   }
 
   get sumResult() {
