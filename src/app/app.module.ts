@@ -6,6 +6,8 @@ import { SumService } from './sum.service';
 import { MultiplyBySumService } from './multiply-by-sum.service';
 import { PowerByMultiplyService } from './power-by-multiply.service';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { SubService } from './sub.service';
+import { DivBySubService } from './div-by-sub.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { CalculatorComponent } from './calculator/calculator.component';
   providers: [
     SumService,
     MultiplyBySumService,
-    PowerByMultiplyService
+    PowerByMultiplyService,
+    SubService,
+    DivBySubService
   ],
   bootstrap: [AppComponent]
 })
