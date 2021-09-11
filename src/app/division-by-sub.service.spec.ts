@@ -22,14 +22,20 @@ describe('DivisionBySubService', () => {
   });
 
   it('division(9,3) should return 3', () => {
-    subServiceSpy.sub.and.returnValues(9, 6, 3);
+    subServiceSpy.sub.and.returnValues(6, 3, 0);
     expect(divisionBySubService.division(9, 3)).toEqual(3);
     expect(subServiceSpy.sub.calls.count()).toEqual(3);
   });
 
   it('division(100,10) should return 10', () => {
-    subServiceSpy.sub.and.returnValues(100, 90, 80, 70, 60, 50, 40, 30, 20, 10);
+    subServiceSpy.sub.and.returnValues(90, 80, 70, 60, 50, 40, 30, 20, 10, 0);
     expect(divisionBySubService.division(100, 10)).toEqual(10);
     expect(subServiceSpy.sub.calls.count()).toEqual(10);
+  });
+
+  it('division(16,5) should return 3', () => {
+    subServiceSpy.sub.and.returnValues(11, 6, 1);
+    expect(divisionBySubService.division(16, 5)).toEqual(3);
+    expect(subServiceSpy.sub.calls.count()).toEqual(3);
   });
 });
