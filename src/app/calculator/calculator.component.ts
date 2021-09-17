@@ -1,3 +1,5 @@
+import { DivideBySubService } from './../divide-by-sub.service';
+import { SubtractionService } from './../subtraction.service';
 import { Component, OnInit } from '@angular/core';
 
 import { SumService } from '../sum.service';
@@ -14,11 +16,15 @@ export class CalculatorComponent implements OnInit {
   private sumRes: number = 0;
   private multRes: number = 0;
   private powRes: number = 0;
+  private subRes: number = 0;
+  private divRes: number = 0;
 
   constructor(
     private sumService: SumService,
     private multiplyBySumService: MultiplyBySumService,
-    private powerByMultiplyService: PowerByMultiplyService
+    private powerByMultiplyService: PowerByMultiplyService,
+    private subService: SubtractionService,
+    private divideService: DivideBySubService
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +37,8 @@ export class CalculatorComponent implements OnInit {
     this.sum(num1,num2);
     this.multiply(num1,num2);
     this.power(num1,num2);
+    this.subtract(num1, num2);
+    this.divide(num1, num2);
   }
 
   sum(num1: number, num2: number) {
@@ -45,6 +53,14 @@ export class CalculatorComponent implements OnInit {
     this.powRes = this.powerByMultiplyService.power(num1,num2);
   }
 
+  subtract(num1: number, num2: number) {
+    this.subRes = this.subService.subtraction(num1, num2);
+  }
+
+  divide(num1: number, num2: number){
+    this.divRes = this.divideService.divide(num1, num2);
+  }
+
   get sumResult() {
     return this.sumRes;
   }
@@ -57,4 +73,11 @@ export class CalculatorComponent implements OnInit {
     return this.powRes;
   }
 
+  get subResult(){
+    return this.subRes;
+  }
+
+  get divResult(){
+    return this.divRes;
+  }
 }
