@@ -1,12 +1,23 @@
 <form>
   Número 1: <input id="num1" #num1 type="text" /><br />
   Número 2: <input id="num2" #num2 type="text" /><br />
-  <input id="calc" type="button" value="Calcular"
-    (click)="calculate(num1.value,num2.value)">
+  <input
+    id="calc"
+    type="button"
+    value="Calcular"
+    (click)="calculate(num1.value, num2.value)"
+  />
 </form>
 
 <div class="results">
-  Resultado soma: <input type="text" id="resultSum" [value]="sumResult" readonly><br />
-  Resultado multiplicação: <input type="text" id="resultMultiply" [value]="multResult" readonly><br />
-  Resultado potência: <input type="text" id="resultPower" [value]="powResult" readonly><br />
+  Resultado soma:
+  <input type="text" id="resultSum" [value]="sumResult" readonly /><br />
+  Resultado subtração:
+  <input type="text" id="resultSub" [value]="subResult" readonly /><br />
+  Resultado multiplicação:
+  <input type="text" id="resultMultiply" [value]="multResult" readonly /><br />
+  Resultado divisão:
+  <input type="text" id="resultDivide" [value]="divideResult" readonly /><br />
+  Resultado potência:
+  <input type="text" id="resultPower" [value]="powResult" readonly /><br />
 </div>
