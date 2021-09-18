@@ -35,7 +35,6 @@ export class CalculatorComponent implements OnInit {
     this.sum(num1, num2);
     this.multiply(num1, num2);
     this.power(num1, num2);
-    this.power(num1, num2);
     this.division(num1, num2);
     this.subtract(num1, num2);
   }
