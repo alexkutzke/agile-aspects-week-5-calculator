@@ -14,7 +14,7 @@ describe('CalculatorComponent', () => {
       declarations: [ CalculatorComponent ],
       providers: [
         //SumService,
-        //MultiplyBySumService, 
+        //MultiplyBySumService,
         //PowerByMultiplyService
       ]
     })
@@ -35,7 +35,7 @@ describe('CalculatorComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('form')).toBeTruthy();
   });
- 
+
   it('should present results 5, 6 and 8 after calculate(2,3)', () => {
     component.calculate('2','3');
     fixture.detectChanges();
@@ -43,11 +43,17 @@ describe('CalculatorComponent', () => {
     const resultSumInput:HTMLInputElement = compiled.querySelector('#resultSum')!;
     const resultMultiplyInput:HTMLInputElement = compiled.querySelector('#resultMultiply')!;
     const resultPowerInput:HTMLInputElement = compiled.querySelector('#resultPower')!;
+    const resultSubInput:HTMLInputElement = compiled.querySelector('#resultSubtraction')!;
+    const resultDivInput:HTMLInputElement = compiled.querySelector('#resultDivision')!;
+
     expect(resultSumInput.value).toBe('5');
     expect(resultMultiplyInput.value).toBe('6');
     expect(resultPowerInput.value).toBe('8');
+    expect(resultSubInput.value).toBe('-1');
+    expect(resultDivInput.value).toBe('-6');
+
   });
-  
+
   it('should present results 5, 6 and 8 after user enter values 2 and 3 then click the button', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const num1Input: HTMLInputElement = compiled.querySelector('#num1')!;
@@ -62,9 +68,13 @@ describe('CalculatorComponent', () => {
     const resultSumInput:HTMLInputElement = compiled.querySelector('#resultSum')!;
     const resultMultiplyInput:HTMLInputElement = compiled.querySelector('#resultMultiply')!;
     const resultPowerInput:HTMLInputElement = compiled.querySelector('#resultPower')!;
+    const resultSubInput:HTMLInputElement = compiled.querySelector('#resultSubtraction')!;
+    const resultDivInput:HTMLInputElement = compiled.querySelector('#resultDivision')!;
     expect(resultSumInput.value).toBe('5');
     expect(resultMultiplyInput.value).toBe('6');
     expect(resultPowerInput.value).toBe('8');
+    expect(resultSubInput.value).toBe('-1');
+    expect(resultDivInput.value).toBe('-6');
   });
 
 });

@@ -25,6 +25,6 @@ describe('DivisionService', () => {
 
   it('divide(10,2) should return 5', () => {
     spySubtration.sub.and.returnValues(3, 5);
-    expect(divService.div(3, 2)).toEqual(15);
+    expect(divService.div(3, 2)).toEqual(5);
   });
 });
