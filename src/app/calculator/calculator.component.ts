@@ -1,3 +1,5 @@
+import { DivisionService } from './../division.service';
+import { SubtractionService } from './../subtraction.service';
 import { Component, OnInit } from '@angular/core';
 
 import { SumService } from '../sum.service';
@@ -14,9 +16,13 @@ export class CalculatorComponent implements OnInit {
   private sumRes: number = 0;
   private multRes: number = 0;
   private powRes: number = 0;
+  private subtractionRes: number = 0;
+  private divisionRes: number = 0;
 
   constructor(
     private sumService: SumService,
+    private subtractionService: SubtractionService,
+    private divisionService: DivisionService,
     private multiplyBySumService: MultiplyBySumService,
     private powerByMultiplyService: PowerByMultiplyService
   ) { }
@@ -28,9 +34,11 @@ export class CalculatorComponent implements OnInit {
     let num1: number = parseInt(num1String);
     let num2: number = parseInt(num2String);
 
-    this.sum(num1,num2);
-    this.multiply(num1,num2);
-    this.power(num1,num2);
+    this.sum(num1, num2);
+    this.multiply(num1, num2);
+    this.power(num1, num2);
+    this.subtract(num1, num2)
+    this.divide(num1, num2)
   }
 
   sum(num1: number, num2: number) {
@@ -55,6 +63,22 @@ export class CalculatorComponent implements OnInit {
 
   get powResult() {
     return this.powRes;
+  }
+
+  subtract(num1: number, num2: number) {
+    this.subtractionRes = this.subtractionService.subtract(num1, num2)
+  }
+
+  divide(num1: number, num2: number) {
+    this.divisionRes = this.divisionService.divide(num1, num2)
+  }
+
+  get subtractionResult(){
+    return this.subtractionRes;
+  }
+
+  get divisionResult(){
+    return this.divisionRes;
   }
 
 }
