@@ -13,19 +13,21 @@ describe('PowerByMultiplyService', () => {
     TestBed.configureTestingModule({
       providers: [
         PowerByMultiplyService,
-        { provide: MultiplyBySumService, useValue: spy }
-      ]
+        { provide: MultiplyBySumService, useValue: spy },
+      ],
     });
-    multiplyBySumSpy = TestBed.inject(MultiplyBySumService) as jasmine.SpyObj<MultiplyBySumService>;
+    multiplyBySumSpy = TestBed.inject(
+      MultiplyBySumService
+    ) as jasmine.SpyObj<MultiplyBySumService>;
     powerByMultiplyService = TestBed.inject(PowerByMultiplyService);
   });
 
   it('should be created', () => {
     expect(powerByMultiplyService).toBeTruthy();
   });
-  
+
   it('power(2,3) should return 8', () => {
-    multiplyBySumSpy.multiply.and.returnValues(2,4,8);
-    expect(powerByMultiplyService.power(2,3)).toEqual(8);
+    multiplyBySumSpy.multiply.and.returnValues(2, 4, 8);
+    expect(powerByMultiplyService.power(2, 3)).toEqual(8);
   });
 });
